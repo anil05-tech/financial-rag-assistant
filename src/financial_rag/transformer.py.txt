@@ -1,0 +1,16 @@
+from transformers import pipeline
+
+
+question_answerer = pipeline("question-answering", model="distilbert-base-cased-distilled-squad")
+
+
+def answer_question(question: str, context: str) -> dict:
+    return question_answerer(question=question, context=context)
+
+
+if __name__ == "__main__":
+    result = answer_question(
+        "Where are you?",
+        "I am currently in the transformers section.",
+    )
+    print(result)
