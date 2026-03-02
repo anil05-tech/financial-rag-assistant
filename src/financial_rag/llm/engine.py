@@ -48,8 +48,6 @@ def load_engine(model_name: str) -> None:
     _pipeline = pipeline(
         "text-generation",
         model=model_name,
-        device_map="auto",
-        torch_dtype="auto",
     )
     _tokenizer = _pipeline.tokenizer
 
